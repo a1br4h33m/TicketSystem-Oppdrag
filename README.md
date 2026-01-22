@@ -37,16 +37,16 @@ Dette prosjektet er utviklet som en første versjon av et enkelt ticketsystem so
 - Endre status på ticketen (Åpnet, lukket eller under arbeid)
 
 # Forslag for videre utvikling 
-Sortere alle tickets med prioriteringssystem... (Kun drift/admin brukere som kan se prioriteringssytemet lav/middels/høy)
-Bedre logging og feilhåndteringssytem som kan gjøre det sånn at hvis det kommer samme problemet flere ganger kan man fikse det mye lettere og trenger ikke å gå gjennom alt hver eneste gang.
-Flere roller enn drift/admin... (lavere prioriterings saker kan takles av lavere roller mens høyere prioriteringer kan takles av høyere roller som admin)
-Varslinger på e-post eller SMS for når tickets blir lagt/fått svar/lukket.
-Automatisk varsling for arbeidere hvis en ticket ikke blir behandler på en stund. 
-Automatisk tildeling av tickts basert på hvilken prioritet som passer til hvilken rolle.
-Dark mode 
+- Sortere alle tickets med prioriteringssystem... (Kun drift/admin brukere som kan se prioriteringssytemet lav/middels/høy)
+- Bedre logging og feilhåndteringssytem som kan gjøre det sånn at hvis det kommer samme problemet flere ganger kan man fikse det mye lettere og trenger ikke å gå gjennom alt hver eneste gang.
+- Flere roller enn drift/admin... (lavere prioriterings saker kan takles av lavere roller mens høyere prioriteringer kan takles av høyere roller som admin)
+- Varslinger på e-post eller SMS for når tickets blir lagt/fått svar/lukket.
+- Automatisk varsling for arbeidere hvis en ticket ikke blir behandler på en stund. 
+- Automatisk tildeling av tickts basert på hvilken prioritet som passer til hvilken rolle.
+- Dark mode 
 
 # Hva jeg har lært 
-Strukturering av kode for vidre utvikling
-Bruk av github for logging/dokumentasjon og versjonskontroll.
-Har fått mye bedre kontroll på Flask og Mariadb enn før.
+- Strukturering av kode for vidre utvikling
+- Bruk av github for logging/dokumentasjon og versjonskontroll.
+- Har fått mye bedre kontroll på Flask og Mariadb enn før.
 ??
