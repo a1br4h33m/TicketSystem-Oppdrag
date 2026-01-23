@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support Dashboard - TechSupport AS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="tickets.css">
+    <link rel="stylesheet" href="support-dashboard.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <h1 class="logo">TechSupport AS</h1>
+                <nav class="nav">
+                    <a href="Home.html" class="nav-link">Hjem</a>
+                    <a href="support-dashboard.html" class="nav-link active">Drift Dashboard</a>
+                </nav>
+                <div class="auth-buttons">
+                    <span class="user-welcome" id="userWelcome">Hei, Support</span>
+                    <button class="btn btn-secondary" id="logoutBtn">Logg ut</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Support Dashboard -->
+    <section class="ticket-section">
+        <div class="container">
+            <div class="ticket-header">
+                <div>
+                    <h2 class="page-title">Support Dashboard</h2>
+                    <p class="page-subtitle">Håndter kundehenvendelser</p>
+                </div>
+            </div>
+
+            <!-- Statistics Cards -->
+            <div class="support-stats">
+                <div class="stat-card-small">
+                    <div class="stat-icon-small" style="background: #E5F5FF; color: #3B9FFF;">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="stat-label-small">Åpne</p>
+                        <h3 class="stat-value-small" id="openCount">0</h3>
+                    </div>
+                </div>
+
+                <div class="stat-card-small">
+                    <div class="stat-icon-small" style="background: #FFF4E5; color: #FFB020;">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/>
+                            <path d="M12 6V12L16 14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="stat-label-small">Under arbeid</p>
+                        <h3 class="stat-value-small" id="inProgressCount">0</h3>
+                    </div>
+                </div>
+
+                <div class="stat-card-small">
+                    <div class="stat-icon-small" style="background: #E5FFE5; color: #4CAF50;">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="stat-label-small">Løst i dag</p>
+                        <h3 class="stat-value-small" id="resolvedTodayCount">0</h3>
+                    </div>
+                </div>
+
+                <div class="stat-card-small">
+                    <div class="stat-icon-small" style="background: #FFE5E5; color: #FF6B6B;">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 9V13M12 17H12.01M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="stat-label-small">Haster</p>
+                        <h3 class="stat-value-small" id="urgentCount">0</h3>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Filter Options -->
+            <div class="ticket-filters">
+                <button class="filter-btn active" data-filter="all">Alle</button>
+                <button class="filter-btn" data-filter="open">Åpne</button>
+                <button class="filter-btn" data-filter="in_progress">Under arbeid</button>
+                <button class="filter-btn" data-filter="resolved">Løst</button>
+                <button class="filter-btn" data-filter="closed">Lukket</button>
+                <button class="filter-btn" data-filter="urgent">🔴 Haster</button>
+            </div>
+
+            <!-- Tickets Grid -->
+            <div class="tickets-container" id="ticketsContainer">
+                <div class="loading-state">
+                    <div class="spinner"></div>
+                    <p>Laster tickets...</p>
+                </div>
+            </div>
+
+            <!-- Empty State -->
+            <div class="empty-state" id="emptyState" style="display: none;">
+                <svg width="120" height="120" viewBox="0 0 120 120" fill="none">
+                    <circle cx="60" cy="60" r="50" stroke="#E5E5E5" stroke-width="4"/>
+                    <path d="M45 55C45 52.2386 47.2386 50 50 50H70C72.7614 50 75 52.2386 75 55V75C75 77.7614 72.7614 80 70 80H50C47.2386 80 45 77.7614 45 75V55Z" stroke="#FF9B9B" stroke-width="3"/>
+                    <line x1="52" y1="60" x2="68" y2="60" stroke="#FF9B9B" stroke-width="3" stroke-linecap="round"/>
+                    <line x1="52" y1="68" x2="62" y2="68" stroke="#FF9B9B" stroke-width="3" stroke-linecap="round"/>
+                </svg>
+                <h3>Ingen tickets funnet</h3>
+                <p>Alle tickets er håndtert!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p class="footer-text">© 2026 TechSupport AS</p>
+        </div>
+    </footer>
+
+    <script src="support-dashboard.js"></script>
+</body>
+</html>
