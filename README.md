@@ -37,7 +37,6 @@ Dette prosjektet er utviklet som en første versjon av et enkelt ticketsystem so
 - Endre status på ticketen (Åpnet, lukket eller under arbeid)
 
 # Forslag for videre utvikling 
-- Sortere alle tickets med prioriteringssystem... (Kun drift/admin brukere som kan se prioriteringssytemet lav/middels/høy)
 - Bedre logging og feilhåndteringssytem som kan gjøre det sånn at hvis det kommer samme problemet flere ganger kan man fikse det mye lettere og trenger ikke å gå gjennom alt hver eneste gang.
 - Flere roller enn drift/admin... (lavere prioriterings saker kan takles av lavere roller mens høyere prioriteringer kan takles av høyere roller som admin)
 - Varslinger på e-post eller SMS for når tickets blir lagt/fått svar/lukket.
@@ -49,4 +48,9 @@ Dette prosjektet er utviklet som en første versjon av et enkelt ticketsystem so
 - Strukturering av kode for vidre utvikling
 - Bruk av github for logging/dokumentasjon og versjonskontroll.
 - Har fått mye bedre kontroll på Flask og Mariadb enn før.
-??
+
+# Brukerveiledning 
+- Lag en vanlig konto først og lag en ticket...
+- Logg inn som admin med admin@admin.admin (Passord: admin)
+- Lag en support konto eller kjør "python create_support_user.py" for å få en support konto
+- Logg inn med support konto.
