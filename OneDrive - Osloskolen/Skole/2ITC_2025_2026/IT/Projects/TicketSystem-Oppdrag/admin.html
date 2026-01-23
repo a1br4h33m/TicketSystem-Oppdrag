@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - TechSupport AS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <h1 class="logo">TechSupport AS</h1>
+                <nav class="nav">
+                    <a href="Home.html" class="nav-link">Hjem</a>
+                    <a href="admin.html" class="nav-link active">Dashboard</a>
+                </nav>
+                <div class="auth-buttons">
+                    <button class="btn btn-secondary" id="logoutBtn">Logg ut</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Admin Dashboard -->
+    <section class="admin-section">
+        <div class="container">
+            <div class="admin-header">
+                <h2 class="page-title">Admin Dashboard</h2>
+                <p class="page-subtitle">Oversikt over systemet</p>
+            </div>
+
+            <!-- Statistics Cards -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon" style="background: #FFE5E5;">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                            <path d="M16 4C9.4 4 4 9.4 4 16C4 22.6 9.4 28 16 28C22.6 28 28 22.6 28 16C28 9.4 22.6 4 16 4ZM16 8C18.2 8 20 9.8 20 12C20 14.2 18.2 16 16 16C13.8 16 12 14.2 12 12C12 9.8 13.8 8 16 8ZM16 25.2C12.8 25.2 9.9 23.5 8.4 20.9C8.5 18.2 13.3 16.7 16 16.7C18.7 16.7 23.5 18.2 23.6 20.9C22.1 23.5 19.2 25.2 16 25.2Z" fill="#FF6B6B"/>
+                        </svg>
+                    </div>
+                    <div class="stat-content">
+                        <p class="stat-label">Totale Brukere</p>
+                        <h3 class="stat-value" id="totalUsers">0</h3>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon" style="background: #FFF4E5;">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                            <path d="M26 8H20V6C20 4.9 19.1 4 18 4H14C12.9 4 12 4.9 12 6V8H6C4.9 8 4 8.9 4 10V26C4 27.1 4.9 28 6 28H26C27.1 28 28 27.1 28 26V10C28 8.9 27.1 8 26 8ZM14 6H18V8H14V6ZM26 26H6V10H26V26Z" fill="#FFB020"/>
+                        </svg>
+                    </div>
+                    <div class="stat-content">
+                        <p class="stat-label">Totale Tickets</p>
+                        <h3 class="stat-value" id="totalTickets">0</h3>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon" style="background: #E5F5FF;">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                            <path d="M16 4C9.4 4 4 9.4 4 16C4 22.6 9.4 28 16 28C22.6 28 28 22.6 28 16C28 9.4 22.6 4 16 4ZM16 26C10.5 26 6 21.5 6 16C6 10.5 10.5 6 16 6C21.5 6 26 10.5 26 16C26 21.5 21.5 26 16 26Z" fill="#3B9FFF"/>
+                            <circle cx="16" cy="16" r="4" fill="#3B9FFF"/>
+                        </svg>
+                    </div>
+                    <div class="stat-content">
+                        <p class="stat-label">Åpne Tickets</p>
+                        <h3 class="stat-value" id="openTickets">0</h3>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon" style="background: #E5FFE5;">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                            <path d="M16 4C9.4 4 4 9.4 4 16C4 22.6 9.4 28 16 28C22.6 28 28 22.6 28 16C28 9.4 22.6 4 16 4ZM13 22L7 16L8.4 14.6L13 19.2L23.6 8.6L25 10L13 22Z" fill="#4CAF50"/>
+                        </svg>
+                    </div>
+                    <div class="stat-content">
+                        <p class="stat-label">Løste Tickets</p>
+                        <h3 class="stat-value" id="resolvedTickets">0</h3>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Create Support User Section -->
+            <div class="admin-card">
+                <div class="card-header">
+                    <h3 class="card-title">Opprett Drift/Support Bruker</h3>
+                </div>
+                <div style="padding: 2rem;">
+                    <form id="createSupportUserForm" class="support-user-form">
+                        <div class="form-row-grid">
+                            <div class="form-group">
+                                <label for="supportUsername">Brukernavn</label>
+                                <input type="text" id="supportUsername" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="supportEmail">E-post</label>
+                                <input type="email" id="supportEmail" required>
+                            </div>
+                        </div>
+                        <div class="form-row-grid">
+                            <div class="form-group">
+                                <label for="supportPassword">Passord</label>
+                                <input type="password" id="supportPassword" required minlength="6">
+                            </div>
+                            <div class="form-group">
+                                <label for="supportUserType">Brukertype</label>
+                                <select id="supportUserType" required>
+                                    <option value="support">Support/Drift</option>
+                                    <option value="admin">Administrator</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-accent">Opprett Bruker</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Users Table -->
+            <div class="admin-card">
+                <div class="card-header">
+                    <h3 class="card-title">Brukere</h3>
+                    <span class="badge" id="userCount">0</span>
+                </div>
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Brukernavn</th>
+                                <th>E-post</th>
+                                <th>Type</th>
+                                <th>Opprettet</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="usersTableBody">
+                            <tr>
+                                <td colspan="6" class="loading">Laster data...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Tickets Table -->
+            <div class="admin-card">
+                <div class="card-header">
+                    <h3 class="card-title">Tickets</h3>
+                    <span class="badge" id="ticketCount">0</span>
+                </div>
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Tittel</th>
+                                <th>Bruker</th>
+                                <th>Kategori</th>
+                                <th>Prioritet</th>
+                                <th>Status</th>
+                                <th>Opprettet</th>
+                            </tr>
+                        </thead>
+                        <tbody id="ticketsTableBody">
+                            <tr>
+                                <td colspan="7" class="loading">Laster data...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p class="footer-text">© 2026 TechSupport AS</p>
+        </div>
+    </footer>
+
+    <script src="admin.js"></script>
+</body>
+</html>

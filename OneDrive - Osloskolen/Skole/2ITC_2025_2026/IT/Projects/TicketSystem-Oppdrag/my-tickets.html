@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mine Tickets - TechSupport AS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="tickets.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <h1 class="logo">TechSupport AS</h1>
+                <nav class="nav">
+                    <a href="Home.html" class="nav-link">Hjem</a>
+                    <a href="my-tickets.html" class="nav-link active">Mine Tickets</a>
+                    <a href="create-ticket.html" class="nav-link">Opprett Ticket</a>
+                </nav>
+                <div class="auth-buttons">
+                    <button class="btn btn-secondary" id="logoutBtn">Logg ut</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Tickets List Section -->
+    <section class="ticket-section">
+        <div class="container">
+            <div class="ticket-header">
+                <div>
+                    <h2 class="page-title">Mine Tickets</h2>
+                    <p class="page-subtitle">Oversikt over dine support-henvendelser</p>
+                </div>
+                <a href="create-ticket.html" class="btn btn-accent">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M10 4V16M4 10H16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                    <span>Ny Ticket</span>
+                </a>
+            </div>
+
+            <!-- Filter Options -->
+            <div class="ticket-filters">
+                <button class="filter-btn active" data-filter="all">Alle</button>
+                <button class="filter-btn" data-filter="open">Åpne</button>
+                <button class="filter-btn" data-filter="in_progress">Under arbeid</button>
+                <button class="filter-btn" data-filter="resolved">Løst</button>
+                <button class="filter-btn" data-filter="closed">Lukket</button>
+            </div>
+
+            <!-- Tickets Grid -->
+            <div class="tickets-container" id="ticketsContainer">
+                <div class="loading-state">
+                    <div class="spinner"></div>
+                    <p>Laster tickets...</p>
+                </div>
+            </div>
+
+            <!-- Empty State -->
+            <div class="empty-state" id="emptyState" style="display: none;">
+                <svg width="120" height="120" viewBox="0 0 120 120" fill="none">
+                    <circle cx="60" cy="60" r="50" stroke="#E5E5E5" stroke-width="4"/>
+                    <path d="M45 55C45 52.2386 47.2386 50 50 50H70C72.7614 50 75 52.2386 75 55V75C75 77.7614 72.7614 80 70 80H50C47.2386 80 45 77.7614 45 75V55Z" stroke="#FF9B9B" stroke-width="3"/>
+                    <line x1="52" y1="60" x2="68" y2="60" stroke="#FF9B9B" stroke-width="3" stroke-linecap="round"/>
+                    <line x1="52" y1="68" x2="62" y2="68" stroke="#FF9B9B" stroke-width="3" stroke-linecap="round"/>
+                </svg>
+                <h3>Ingen tickets funnet</h3>
+                <p>Du har ikke opprettet noen support tickets ennå</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p class="footer-text">© 2026 TechSupport AS</p>
+        </div>
+    </footer>
+
+    <script src="my-tickets.js"></script>
+</body>
+</html>

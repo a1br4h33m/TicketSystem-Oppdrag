@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Opprett Ticket - TechSupport AS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="tickets.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <h1 class="logo">TechSupport AS</h1>
+                <nav class="nav">
+                    <a href="Home.html" class="nav-link">Hjem</a>
+                    <a href="my-tickets.html" class="nav-link">Mine Tickets</a>
+                    <a href="create-ticket.html" class="nav-link active">Opprett Ticket</a>
+                </nav>
+                <div class="auth-buttons">
+                    <button class="btn btn-secondary" id="logoutBtn">Logg ut</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Create Ticket Section -->
+    <section class="ticket-section">
+        <div class="container">
+            <div class="ticket-header">
+                <h2 class="page-title">Opprett Ny Ticket</h2>
+                <p class="page-subtitle">Beskriv problemet ditt, så hjelper vi deg</p>
+            </div>
+
+            <div class="ticket-form-container">
+                <form class="ticket-form" id="createTicketForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="ticketTitle">Tittel *</label>
+                            <input type="text" id="ticketTitle" name="title" placeholder="Kort beskrivelse av problemet" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="ticketCategory">Kategori *</label>
+                            <select id="ticketCategory" name="category" required>
+                                <option value="">Velg kategori</option>
+                                <option value="technical">Teknisk Support</option>
+                                <option value="billing">Faktura/Betaling</option>
+                                <option value="account">Konto Problem</option>
+                                <option value="other">Annet</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="ticketPriority">Prioritet *</label>
+                            <select id="ticketPriority" name="priority" required>
+                                <option value="low">Lav - Kan vente</option>
+                                <option value="medium" selected>Middels - Normal hastighet</option>
+                                <option value="high">Høy - Viktig</option>
+                                <option value="urgent">Haster - Kritisk</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="ticketDescription">Beskrivelse *</label>
+                            <textarea id="ticketDescription" name="description" rows="8" placeholder="Beskriv problemet i detalj. Jo mer informasjon, jo bedre kan vi hjelpe deg." required></textarea>
+                            <small class="form-hint">Inkluder relevant informasjon som feilmeldinger, når problemet oppstod, etc.</small>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary" onclick="window.location.href='my-tickets.html'">Avbryt</button>
+                        <button type="submit" class="btn btn-primary">
+                            <span>Opprett Ticket</span>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M3 10H17M17 10L11 4M17 10L11 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p class="footer-text">© 2026 TechSupport AS</p>
+        </div>
+    </footer>
+
+    <script src="create-ticket.js"></script>
+</body>
+</html>

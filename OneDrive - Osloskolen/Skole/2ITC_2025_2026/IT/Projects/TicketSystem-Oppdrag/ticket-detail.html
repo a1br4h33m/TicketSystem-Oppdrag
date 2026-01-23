@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ticket Detaljer - TechSupport AS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="tickets.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <h1 class="logo">TechSupport AS</h1>
+                <nav class="nav">
+                    <a href="Home.html" class="nav-link">Hjem</a>
+                    <a href="my-tickets.html" class="nav-link active">Mine Tickets</a>
+                    <a href="create-ticket.html" class="nav-link">Opprett Ticket</a>
+                </nav>
+                <div class="auth-buttons">
+                    <button class="btn btn-secondary" id="logoutBtn">Logg ut</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Ticket Detail Section -->
+    <section class="ticket-section">
+        <div class="container">
+            <div class="ticket-detail-container">
+                <!-- Back Button -->
+                <a href="my-tickets.html" class="back-link">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M12.5 15L7.5 10L12.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    Tilbake til tickets
+                </a>
+
+                <!-- Loading State -->
+                <div class="loading-state" id="loadingState">
+                    <div class="spinner"></div>
+                    <p>Laster ticket...</p>
+                </div>
+
+                <!-- Ticket Content -->
+                <div class="ticket-detail-content" id="ticketContent" style="display: none;">
+                    <!-- Ticket Header -->
+                    <div class="ticket-detail-header">
+                        <div class="ticket-title-section">
+                            <h2 class="ticket-title" id="ticketTitle">Loading...</h2>
+                            <div class="ticket-meta" id="ticketMeta"></div>
+                        </div>
+                        <div class="ticket-status-section" id="ticketStatusSection">
+                            <!-- Status will be populated -->
+                        </div>
+                    </div>
+
+                    <!-- Ticket Description -->
+                    <div class="ticket-description-card">
+                        <h3 class="section-title">Beskrivelse</h3>
+                        <p class="ticket-description" id="ticketDescription">Loading...</p>
+                    </div>
+
+                    <!-- Comments Section -->
+                    <div class="comments-section">
+                        <h3 class="section-title">
+                            Kommentarer 
+                            <span class="comment-count" id="commentCount">(0)</span>
+                        </h3>
+
+                        <!-- Add Comment Form -->
+                        <div class="add-comment-card">
+                            <form class="comment-form" id="commentForm">
+                                <textarea id="commentText" placeholder="Skriv en kommentar..." rows="4" required></textarea>
+                                <div class="comment-form-actions">
+                                    <button type="submit" class="btn btn-primary">Legg til kommentar</button>
+                                </div>
+                            </form>
+                        </div>
+
+                        <!-- Comments List -->
+                        <div class="comments-list" id="commentsList">
+                            <p class="no-comments">Ingen kommentarer ennå. Vær den første til å kommentere!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p class="footer-text">© 2026 TechSupport AS</p>
+        </div>
+    </footer>
+
+    <script src="ticket-detail.js"></script>
+</body>
+</html>
